@@ -2,11 +2,11 @@
 Written by Arman Moussavi
 Last updated: 10/16/2025
 
-This tutorial guides you through setting up and running polymer simulations using the provided codebase.
+This tutorial guides you through setting up, running, and analyzing polymer simulations using the provided codebase.
 
 ## Prerequisites
 - Git installed on your system
-- Python installed (for running the build script)
+- Python installed (for running the build and analysis scripts)
 - LAMMPS installed (for running simulations)
 - Access to an HPC cluster (if running simulations on one)
 
@@ -45,6 +45,13 @@ This tutorial guides you through setting up and running polymer simulations usin
      ```bash
      sbatch submit_generation.sub
      ```
+
+6. **Analyze the Final Polymer Structure**  
+   Navigate to the analysis folder and run the Python script to analyze the final structure of the polymer system:
+   ```bash
+   cd ../analysis
+   python conformations.py
+   ```
 
 ## Notes
 - Ensure all dependencies (e.g., LAMMPS, Python libraries) are installed before running the scripts.
