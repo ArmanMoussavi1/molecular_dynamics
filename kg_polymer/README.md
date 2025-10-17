@@ -1,46 +1,52 @@
-Polymer Simulation Setup Tutorial
-This tutorial guides you through setting up and running polymer simulations using the provided codebase.
+# Polymer Simulation Setup Tutorial
 Written by Arman Moussavi
 Last updated: 10/16/2025
 
-Prerequisites
+This tutorial guides you through setting up and running polymer simulations using the provided codebase.
 
-Git installed on your system
-Python installed (for running the build script)
-LAMMPS installed (for running simulations)
-Access to an HPC cluster (if running simulations on one)
+## Prerequisites
+- Git installed on your system
+- Python installed (for running the build script)
+- LAMMPS installed (for running simulations)
+- Access to an HPC cluster (if running simulations on one)
 
-Step-by-Step Instructions
+## Step-by-Step Instructions
 
-Clone the RepositoryClone the repository to your desired destination directory:
-git clone <repository_url> <destination_folder>
+1. **Clone the Repository**  
+   Clone the repository to your desired destination directory:
+   ```bash
+   git clone <repository_url> <destination_folder>
+   ```
 
+2. **Navigate to the Initial Configuration Folder**  
+   Move to the folder where the initial polymer structure will be generated:
+   ```bash
+   cd <destination_folder>/write_initial_config
+   ```
 
-Navigate to the Initial Configuration FolderMove to the folder where the initial polymer structure will be generated:
-cd <destination_folder>/write_initial_config
+3. **Generate the Initial Polymer Structure**  
+   Run the Python script to build the initial configuration:
+   ```bash
+   python build_melt.py
+   ```
 
+4. **Navigate to the Generation Folder**  
+   Move to the folder containing the simulation scripts:
+   ```bash
+   cd ../generation
+   ```
 
-Generate the Initial Polymer StructureRun the Python script to build the initial configuration:
-python build_melt.py
+5. **Run the Generation Script**  
+   - If running locally, execute the LAMMPS input script:
+     ```bash
+     lmp -i generation.inp
+     ```
+   - If running on an HPC cluster, modify the submission script (`submit_generation.sub`) as needed for your cluster's configuration, then submit the job:
+     ```bash
+     sbatch submit_generation.sub
+     ```
 
-
-Navigate to the Generation FolderMove to the folder containing the simulation scripts:
-cd ../generation
-
-
-Run the Generation Script  
-
-If running locally, execute the LAMMPS input script:lmp -i generation.inp
-
-
-If running on an HPC cluster, modify the submission script (submit_generation.sub) as needed for your cluster's configuration, then submit the job:sbatch submit_generation.sub
-
-
-
-
-
-Notes
-
-Ensure all dependencies (e.g., LAMMPS, Python libraries) are installed before running the scripts.
-For HPC cluster usage, check your cluster's documentation for specific submission script requirements.
-Verify file paths in the scripts match your system setup.
+## Notes
+- Ensure all dependencies (e.g., LAMMPS, Python libraries) are installed before running the scripts.
+- For HPC cluster usage, check your cluster's documentation for specific submission script requirements.
+- Verify file paths in the scripts match your system setup.
