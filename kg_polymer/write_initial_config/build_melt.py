@@ -125,7 +125,7 @@ def main(N, num_chains):
     print("LAMMPS output complete.")
 
 
-# Run the simulation
+# Write the simulation initial configuration
 N = 10
 num_chains = 100
 main(N, num_chains)
