@@ -1,6 +1,6 @@
 # Polymer Simulation Setup Tutorial
 Written by Arman Moussavi
-Last updated: 10/16/2025
+Last updated: 12/3/2025
 
 This tutorial guides you through setting up, running, and analyzing polymer simulations using the provided codebase.
 
